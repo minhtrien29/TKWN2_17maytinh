@@ -1,0 +1,47 @@
+/* Tùy chỉnh thanh cuộn */
+::-webkit-scrollbar { 
+    width: 8px; 
+}
+::-webkit-scrollbar-track { 
+    background: var(--color-tech-bg); 
+}
+::-webkit-scrollbar-thumb { 
+    background: var(--color-tech-red); 
+    border-radius: 4px; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b91c1c;
+}
+
+/* Slider Style */
+.slider-container { 
+    position: relative; 
+    overflow: hidden; 
+    user-select: none; 
+}
+.slider-resizer { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 50%; 
+    border-right: 3px solid white; 
+    z-index: 10; 
+    overflow: hidden; 
+}
+.slider-handle { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 40px; 
+    height: 40px; 
+    background: white; 
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 20; 
+    cursor: ew-resize; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
