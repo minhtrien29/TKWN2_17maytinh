@@ -1,0 +1,191 @@
+/* CSS tùy chỉnh để ẩn nút tăng giảm mặc định của input number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Class tiện ích để tạo đường kẻ mờ giữa các hàng trong bảng so sánh */
+.comparison-row {
+  @apply py-4 border-t border-gray-100 flex items-center;
+}
+
+/* Class cho nhãn đầu dòng của bảng so sánh */
+.comparison-label {
+  @apply font-bold text-black;
+}
+
+/* Thumb active state */
+.thumb-active {
+  outline: 2px solid #f59e0b;
+}
+
+/* Heart / favorite button styles */
+.btn-heart {
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.btn-heart svg {
+  transition: fill 180ms ease, stroke 180ms ease;
+}
+
+.btn-heart.heart-active {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.btn-heart.heart-active svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+/* Scroll buttons for carousels */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.scroll-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.scroll-btn-left {
+  left: 8px;
+}
+
+.scroll-btn-right {
+  right: 8px;
+}
+
+.rel-scroll-wrapper {
+  position: relative;
+  padding-bottom: 48px;
+  /* make space so scrollbar sits below action buttons */
+}
+
+/* Hide native scrollbar and add custom horizontal scrollbar styles */
+.rel-scroll-wrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.rel-scroll-wrapper::-webkit-scrollbar {
+  height: 0;
+}
+
+.hc-scrollbar {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 12px;
+  /* sits inside the added padding area */
+  height: 40px;
+  /* room for circular thumb */
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 30;
+  /* lower so page action buttons remain visually prominent */
+}
+
+.hc-track {
+  position: relative;
+  height: 6px;
+  background: #f1f1f1;
+  border-radius: 999px;
+  width: 100%;
+  overflow: visible;
+}
+
+.hc-thumb {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  /* circular knob */
+  height: 32px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 999px;
+  transition: background 120ms ease, left 120ms ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.hc-thumb:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hc-thumb-inner {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hc-thumb-inner svg {
+  width: 14px;
+  height: 14px;
+  fill: #fff;
+}
+
+/* floating circular button for Quick Comparison (video style) */
+.qc-float-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background 150ms ease, opacity 180ms;
+}
+
+.qc-float-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.qc-float-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qc-float-btn .qc-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hide circular left/right buttons (use custom track instead) */
+.scroll-btn {
+  display: none !important;
+}
